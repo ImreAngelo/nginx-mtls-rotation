@@ -1,12 +1,12 @@
-SERVICES := $(wildcard services/*)
+SERVICES := nginx
 
-.PHONY: all build
+.PHONY: all build $(SERVICES)
 
 all: build
 
 # Run `make build` at the top level to build all service images
-build:
-	@for svc in $(SERVICES); do \
-		echo "Building $$svc..."; \
-		$(MAKE) -C $$svc build; \
-	done
+build: $(SERVICES)
+
+# Run `make nginx` or `make vault` from top-level directory to build service
+$(SERVICES):
+	$(MAKE) -C services/$@
