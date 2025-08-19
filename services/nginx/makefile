@@ -1,4 +1,4 @@
-IMAGE_NAME = nginx-local
+IMAGE_NAME = nginx-mtls
 TAG = latest
 DOCKERFILE = Dockerfile
 CONTEXT = .
