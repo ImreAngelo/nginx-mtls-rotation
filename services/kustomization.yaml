@@ -3,3 +3,8 @@ kind: Kustomization
 
 resources:
   - nginx/k8s.yaml
+
+configMapGenerator:
+  - name: nginx-conf
+    files:
+      - conf.d=nginx/conf.d
