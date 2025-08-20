@@ -1,5 +1,5 @@
-IMAGE_NAME = nginx-mtls
-TAG = latest
+IMAGE_NAME = nginx
+TAG = mtls
 DOCKERFILE = Dockerfile
 CONTEXT = .
 
@@ -8,6 +8,7 @@ CONTEXT = .
 # Build the Docker image
 build:
 	docker build -t $(IMAGE_NAME):$(TAG) -f $(DOCKERFILE) $(CONTEXT)
+	kind load docker-image $(IMAGE_NAME):$(TAG)
 
 # Run locally with Docker for testing
 run:

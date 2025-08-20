@@ -1,4 +1,4 @@
-SERVICES := nginx vault
+SERVICES := nginx
 
 .PHONY: all build $(SERVICES)
 
@@ -29,12 +29,13 @@ k8s-deploy:
 k8s-delete:
 	kubectl delete -k services
 
-
 # Local development environment
 port-forward:
 	@echo "Site running on http://localhost and https://localhost"
-	@kubectl port-forward svc/nginx 80:80 443:443
+	@kubectl port-forward svc/nginx 80:30080 443:30443
 
-dev: k8s-deploy
+dev: build k8s-deploy
 	@sleep 2
-	port-forward
+	kubectl get pods -o wide
+
+clean: k8s-delete
