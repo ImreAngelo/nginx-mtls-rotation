@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: nginx-cache
-          image: nginx:development
+          image: iangelo/nginx:1.16
           ports:
             - containerPort: 80
             - containerPort: 443
@@ -33,8 +33,8 @@ spec:
       port: 8080
       targetPort: 80
       protocol: TCP
-    - name: https-tcp
-      port: 8443
+    - name: https
+      port: 9443
       targetPort: 443
       protocol: TCP
     # - name: https-udp
