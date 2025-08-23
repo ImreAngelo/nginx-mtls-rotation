@@ -1,0 +1,4 @@
+# Secrets
+*.crt
+*.key
+.env

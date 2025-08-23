@@ -28,6 +28,7 @@
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.13.1/deploy/static/provider/cloud/deploy.yaml`
 ```
 
+Check the `services/networking/bootstrap/README.md` file for information about setting up TLS. 
 Then run `make dev` to create a local testing environment.
 
 > [!NOTE]

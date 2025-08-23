@@ -35,7 +35,6 @@ port-forward:
 	@kubectl port-forward svc/nginx 80:30080 443:30443
 
 dev: build k8s-deploy
-	kubectl get pods -o wide
 
 clean: k8s-delete
 

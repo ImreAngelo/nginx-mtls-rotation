@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx-cache
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nginx-cache
@@ -14,11 +14,10 @@ spec:
     spec:
       containers:
         - name: nginx-cache
-          # image: nginx:latest
-          image: nginx:mtls-1.0.0
+          image: iangelo/nginx:1.16
           ports:
             - containerPort: 80
-            # - containerPort: 443
+            - containerPort: 443
             # - containerPort: 443
             #   protocol: UDP
 ---
@@ -34,10 +33,10 @@ spec:
       port: 8080
       targetPort: 80
       protocol: TCP
-    # - name: https-tcp
-    #   port: 8443
-    #   targetPort: 443
-    #   protocol: TCP
+    - name: https-tcp
+      port: 8443
+      targetPort: 443
+      protocol: TCP
     # - name: https-udp
     #   port: 9443
     #   targetPort: 443

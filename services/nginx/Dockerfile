@@ -1,5 +1,3 @@
-FROM iangelo/nginx:1.14
+FROM iangelo/nginx:1.16
 
 COPY src .
-
-USER root
