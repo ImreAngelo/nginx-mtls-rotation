@@ -22,11 +22,13 @@
 </p>
 
 > [!WARNING]
-> **Attention:** Install [ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start) 
+> **Attention:** Make sure [ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/#quick-start) is installed, either via Helm or using the command below.
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.13.1/deploy/static/provider/cloud/deploy.yaml`
 ```
+
+Then run `make dev` to create a local testing environment.
 
 > [!NOTE]
 >
@@ -35,12 +37,10 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 > Markup markup
 
 > [!TIP]
-> Markup!
->
-> Lorem ipsum
+> You can reset the cluster at any point by running `make clean`
 
 
-## Development
+## Guide
 
 > For detailed instructions to develop this project, follow the [CONTRIBUTING.md](./.github/CONTRIBUTING.md)
 

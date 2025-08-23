@@ -1,24 +1,43 @@
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: ingress-nginx-cache
+#   # annotations:
+#     # WARN: (Deprecated) kubernetes.io/ingress.class: nginx
+#     # auto-generate self-signed cert if using ingress-nginx with TLS
+#     # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+# spec:
+#   ingressClassName: nginx
+#   # tls:
+#   # - hosts:
+#   #     - nginx.local
+#   #   secretName: nginx-tls
+#   rules:
+#   - host: localhost
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: nginx-cache
+#             port: 80
+
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx-ingress
-  annotations:
-    # WARN: (Deprecated) kubernetes.io/ingress.class: nginx
-    # auto-generate self-signed cert if using ingress-nginx with TLS
-    # nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  name: ingress-nginx-cache
 spec:
-  ingressClassName: nginx
-  # tls:
-  # - hosts:
-  #     - nginx.local
-  #   secretName: nginx-tls
   rules:
-  - host: nginx.local
+  - host: localhost
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: nginx
-            port: 80
+            name: nginx-cache
+            port:
+              number: 8080
+  ingressClassName: nginx

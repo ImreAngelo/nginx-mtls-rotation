@@ -35,7 +35,10 @@ port-forward:
 	@kubectl port-forward svc/nginx 80:30080 443:30443
 
 dev: build k8s-deploy
-	@sleep 2
 	kubectl get pods -o wide
 
 clean: k8s-delete
+
+# Just for debugging
+k8s-install:
+	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.13.1/deploy/static/provider/cloud/deploy.yaml
