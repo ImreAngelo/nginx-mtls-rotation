@@ -37,8 +37,9 @@ spec:
       port: 8443
       targetPort: 443
       protocol: TCP
-    # - name: https-udp
-    #   port: 9443
-    #   targetPort: 443
-    #   protocol: UDP
+    # TODO: Configure ingress for QUIC over UDP
+    - name: https-udp
+      port: 9443
+      targetPort: 443
+      protocol: UDP
   type: ClusterIP

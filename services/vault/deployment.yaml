@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vault
+  labels:
+    app: vault
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vault
+  template:
+    metadata:
+      labels:
+        app: vault
+    spec:
+      containers:
+        - name: vault
+          image: hashicorp/vault:1.20
+          ports:
+            - containerPort: 8200
+          volumeMounts:
+            - name: tls
+              mountPath: /vault/tls
+              readOnly: true
+          env:
+            - name: VAULT_DEV_ROOT_TOKEN_ID
+              value: "root" # Only for dev mode; do NOT use in production
+            - name: VAULT_DEV_LISTEN_ADDRESS
+              value: "0.0.0.0:8200"
+          args:
+            - "server"
+            - "-dev"
+          readinessProbe:
+            httpGet:
+              path: /v1/sys/health
+              port: 8200
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      volumes:
+        - name: tls
+          secret:
+            secretName: nginx-cache-tls

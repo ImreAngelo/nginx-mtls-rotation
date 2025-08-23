@@ -2,8 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
+  - nginx/ingress.yaml
   - nginx/k8s.yaml
-  - networking/ingress.yaml
+  - vault/ingress.yaml
+  - vault/deployment.yaml
+  - vault/configmap.yaml
+  - vault/service.yaml
 
 # configMapGenerator:
 #   - name: nginx-conf
