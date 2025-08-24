@@ -37,7 +37,8 @@ Then run `make dev` to create a local testing environment.
 
 > [!NOTE]
 >
-> In production, the self-signed certificate(s) can be signed by let's encrypt to provide modern encryption that is trusted by default.
+> In production, the self-signed certificate(s) can be signed by let's encrypt to provide modern encryption that is trusted by default, or use a proxy that provides TLS like cloudflare. 
+> The downside of the latter approach is control over the encryption standards, as often these proxies use less secure TLS standards like v1.2 for compatability
 >
 > **TODO:** Automate this process
 
