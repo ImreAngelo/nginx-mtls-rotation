@@ -43,8 +43,8 @@ def run_mkcert(mkcert_bin, claims = ["localhost", "vault.localhost", "127.0.0.1"
     # Generate a certificate for localhost
     print("Generating localhost certificate...")
     subprocess.run([mkcert_bin, 
-        "-key-file", "services/networking/bootstrap/key.pem", 
-        "-cert-file", "services/networking/bootstrap/cert.pem"
+        "-key-file", "services/networking/bootstrap/rootCA.key", 
+        "-cert-file", "services/networking/bootstrap/rootCA.crt"
     ] + claims, check=True)
 
 if __name__ == "__main__":

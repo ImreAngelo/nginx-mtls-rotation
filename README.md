@@ -14,7 +14,11 @@
 
 <h1 align="center">Nginx mTLS with Automatic Key Rotation</h1>
 
-<p align="center">Short description</p>
+<p align="center">
+  Organizations should protect their website, but the conventional PKI process workflow takes a long time, which motivates organizations to create certificates which do not expire for a year or more.
+  This repository aims to be a production-ready solution that uses hashicorp vault as a self-hosted Key Management System (KMS) to create X.509 certificates for usage in Mutual Transport Layer Security (MTLS) or other arbitrary PKI encryption. 
+  You can use this solution to create web server certificates, but if users do not import the CA chains, browsers do complain about the self-signed certificates.
+</p>
 
 <p align="center">
   <img alt="GitHub License" src="https://img.shields.io/github/license/ImreAngelo/nginx-mtls-rotation">
@@ -33,9 +37,9 @@ Then run `make dev` to create a local testing environment.
 
 > [!NOTE]
 >
-> Another test
+> In production, the self-signed certificate(s) can be signed by let's encrypt to provide modern encryption that is trusted by default.
 >
-> Markup markup
+> **TODO:** Automate this process
 
 > [!TIP]
 > You can reset the cluster at any point by running `make clean`

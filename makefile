@@ -39,6 +39,5 @@ dev: build k8s-deploy
 # TODO: Make first-time install script
 k8s-install:
 	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.13.1/deploy/static/provider/cloud/deploy.yaml
-	cd services/networking/bootstrap && kubectl create secret tls nginx-cache-tls \
-		--cert=tls.crt \
-		--key=tls.key
+	cd services/networking/bootstrap && kubectl create secret tls nginx-cache-tls --cert=tls.crt --key=tls.key
+	cd services/networking/bootstrap && kubectl create secret tls ca-root-cert --cert=rootCA.crt --key=rootCA.key
