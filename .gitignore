@@ -1,4 +1,9 @@
 # Secrets
 *.crt
 *.key
+*.pem
 .env
+
+# Build files
+.tmp
+scripts/mkcert*

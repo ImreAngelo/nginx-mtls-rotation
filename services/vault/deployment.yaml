@@ -40,4 +40,4 @@ spec:
       volumes:
         - name: tls
           secret:
-            secretName: nginx-cache-tls
+            secretName: ca-root-cert

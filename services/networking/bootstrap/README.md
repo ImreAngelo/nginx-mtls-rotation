@@ -15,3 +15,10 @@ kubectl create secret tls nginx-cache-tls \
   --cert=tls.crt \
   --key=tls.key
 ```
+
+If using generate_root_certificates.py then use
+```
+kubectl create secret tls ca-root-cert \
+  --cert=cert.pem \
+  --key=key.pem
+```

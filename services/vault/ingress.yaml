@@ -12,7 +12,7 @@ spec:
   tls:
   - hosts:
     - vault.localhost
-    secretName: nginx-cache-tls
+    secretName: ca-root-cert
   rules:
   - host: vault.localhost
     http:
